@@ -1,16 +1,22 @@
+package tn.esprit.gestionzoo.main;
+
+
+import tn.esprit.gestionzoo.entities.Zoo;
+import tn.esprit.gestionzoo.entities.Animal;
+
 public class Main {
     public static void main(String[] args) {
         Animal lion = new Animal();
-        lion.age = 5;
-        lion.family = "cats";
-        System.out.println(lion.name);
+        lion.setAge(5);
+        lion.setFamily("cats");
+        System.out.println(lion.getName());
         Animal dog = new Animal("canine","snoopy",5,true);
-        System.out.println(dog.name);
+        System.out.println(dog.getName());
         Zoo myZoo= new Zoo("wildlife","Ariana",25);
         Zoo urZoo= new Zoo("jungle","america",20);
 
         System.out.println(myZoo);
-       /* Zoo.displayZoo();
+       /* tn.esprit.gestionzoo.entities.Zoo.displayZoo();
 
 
         System.out.println(myZoo);
@@ -26,7 +32,7 @@ public class Main {
         boolean removed = myZoo.removeAnimal(lion);
         System.out.println(removed);
         System.out.println(Zoo.comparerZoo(myZoo,urZoo));
-        System.out.println(Zoo.isZooFull(myZoo));
+        System.out.println(myZoo.isZooFull(myZoo));
 
 
     }

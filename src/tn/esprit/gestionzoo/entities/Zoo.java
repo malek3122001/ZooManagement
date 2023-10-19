@@ -1,10 +1,41 @@
+package tn.esprit.gestionzoo.entities;
+
 public class Zoo {
-    static Animal[] animals;
-    String name;
-    String city;
-    final int NBR_GAGES=25;
+    private Animal[] animals;
+    private String name;
+    private String city;
+    private final int NBR_GAGES=25;
 
     private int animalCount=0;
+
+
+
+
+
+    public int getNBR_GAGES() {
+        return NBR_GAGES;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (!name.isBlank())
+        this.name = name;
+        else System.out.println("le nom ne doit pas etre vide ");
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+
+
 
     public Zoo(String name, String city, int NBR_GAGES ){
         this.name=name;
@@ -21,14 +52,14 @@ public class Zoo {
 
    @Override
    public String toString() {
-        return "Zoo{" +
+        return "tn.esprit.gestionzoo.entities.Zoo{" +
                 "name='" + name + '\'' +
                 ", city='" + city + '\'' +
                 ", nbrCages=" + NBR_GAGES+
                 '}';
     }
     public boolean addAnimal(Animal animal) {
-        if (animalCount < animals.length) {
+        if (isZooFull(this) ) {
             animals[animalCount] = animal;
             animalCount++;
             return true;
@@ -77,7 +108,7 @@ public class Zoo {
         }
 
 
-    public static boolean isZooFull(Zoo zoo){
+    public boolean isZooFull(Zoo zoo){
             if (animals.length == zoo.NBR_GAGES){
                 return true;
             }
